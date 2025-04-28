@@ -1,4 +1,3 @@
-# .github/workflows/deploy.yml
 name: Deploy Automático no Raspberry Pi
 
 on:
@@ -19,10 +18,9 @@ jobs:
       with:
         host: ${{ secrets.SERVER_IP }}
         username: ${{ secrets.SERVER_USER }}
-        key: ${{ secrets.SERVER_SSH_KEY }}
+        password: ${{ secrets.SERVER_PASSWORD }}  # Use o secret de senha
         script: |
           cd /var/www/site-devops
           git pull origin main
           sudo systemctl reload nginx
         port: 22
-        debug: true  # Ativando o modo debug para ver mais detalhes no log
