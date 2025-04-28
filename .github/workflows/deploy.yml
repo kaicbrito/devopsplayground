@@ -24,3 +24,5 @@ jobs:
           cd /var/www/site-devops
           git pull origin main
           sudo systemctl reload nginx
+        port: 22
+        debug: true  # Ativando o modo debug para ver mais detalhes no log
