@@ -16,11 +16,12 @@ jobs:
     - name: Fazer Deploy via SSH
       uses: appleboy/ssh-action@v0.1.6
       with:
-        host: ${{ secrets.SERVER_IP }} 
-        username: ${{ secrets.SERVER_USER }}  
-        key: ${{ secrets.SERVER_SSH_KEY }}  
+        host: tcp://0.tcp.sa.ngrok.io:15014  
+        username: ${{ secrets.SERVER_USER }}
+        key: ${{ secrets.SERVER_SSH_KEY }}
         script: |
           cd /var/www/site-devops
           git pull origin main
           sudo systemctl reload nginx
-        port: 22  
+        port: 22
+        debug: true
