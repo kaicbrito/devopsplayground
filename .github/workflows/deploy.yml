@@ -18,9 +18,9 @@ jobs:
       with:
         host: ${{ secrets.SERVER_IP }} 
         username: ${{ secrets.SERVER_USER }}  
-        key: ${{ secrets.SERVER_SSH_KEY }} 
+        key: ${{ secrets.SERVER_SSH_KEY }}  
         script: |
           cd /var/www/site-devops
           git pull origin main
           sudo systemctl reload nginx
-        port: 22 
+        port: 22  
